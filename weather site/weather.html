@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style>
+      body {
+  background-image: url('sky.png');
+text-align: center;
+}
+      h2 {
+margin: auto, auto, 20px,auto;
+      }
+      text{
+        font-size: 20px;
+      }
+      .allText{
+      color: brown;
+      font-family: 'Courier New', Courier, monospace;
+      }
+      input{
+        font-family:'Courier New', Courier, monospace;
+        color: rgba(152, 101, 167, 0.726);
+        background: #f1f1f1;
+      }
+      
+       
+    </style>
+
+  </head>
+  
+<body>
+<h1 class="allText">Weather around the world</h1>
+<h2 class="allText" >Give me a name of a city:</h2>
+<input id="formInput" type="text" placeholder="Search.." name="fname">
+  <button  onclick="formHandler()"><img src="lupaa.png" style="height: 20px;"></button>
+<script>
+
+async function formHandler() {
+    try {
+        var inputValue = document.getElementById('formInput').value
+        var response=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=27246259aabc1b11ce70b1b84bb09bf4`)
+        var weatherData=await response.json()
+        alert(JSON.stringify(weatherData))
+    } catch(e) {
+        throw e
+    }
+ }
+
+  </script>
+</body>
+</html>
